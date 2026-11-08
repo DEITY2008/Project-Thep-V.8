@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Unzip project
+        run: |
+          if [ ! -f settings.gradle.kts ]; then unzip -oq ./*.zip; fi
+          ls -la
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
